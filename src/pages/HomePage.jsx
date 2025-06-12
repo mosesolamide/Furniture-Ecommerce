@@ -115,7 +115,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className='max-w-[500px] h-[500px]'>
-                <img src={choose} alt="why you choose us image" className='rounded-2xl w-full h-full' />
+            <img src={choose} alt="why you choose us image" className='rounded-2xl w-full h-full' />
           </div>
         </section>
     </>
