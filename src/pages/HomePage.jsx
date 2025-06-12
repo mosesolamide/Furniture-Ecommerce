@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <>
-        <section className='grid grid-cols-1 gap-20 md:gap-8 lg:grid-cols-3 my-20'>
+        <section className='grid grid-cols-1 gap-20 md:gap-8 lg:grid-cols-3 place-items-center my-20'>
           <div>
             <h1 className='font-medium text-2xl lg:text-3xl text-gray-800'>Crafted with excellent with material</h1>
             <p className='mb-5 text-xs lg:text-sm text-gray-600'>
@@ -36,7 +36,7 @@ export default function HomePage() {
             <Suspense fallback={<Loading />}>
               <Await resolve={product}>
                 {(furnitureList) => (
-                  <ul className="flex flex-col md:flex-row gap-20 w-full list-none p-0 m-0">
+                  <ul className="flex flex-col md:flex-row gap-30 md:gap-10 w-full list-none p-0 m-0">
                     {furnitureList.map((item) => (
                       <li key={item.id} className="flex-1">
                         <article 
@@ -54,9 +54,9 @@ export default function HomePage() {
                             <strong className='text-gray-900 text-xs lg:text-sm font-bold'>${item.price}.00</strong>
                           </div>
                           <div 
-                            className='transition-all duration-300 ease-in-out transform h-60 md:h-40 lg:h-50
+                            className='transition-all duration-300 ease-in-out transform h-55 md:h-40 lg:h-50
                             opacity-0 scale-y-0 origin-bottom group-hover:scale-y-100 group-hover:opacity-100
-                            bg-gray-200 absolute w-full z-[-10] rounded-xl top-[60%] sm:top-[65%] md:top-28 flex
+                            bg-gray-200 absolute w-full z-[-10] rounded-xl top-[30%] sm:top-[34%] md:top-28 flex
                             justify-center items-center'
                           >
                             <img 
