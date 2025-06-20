@@ -1,10 +1,10 @@
-import React from 'react'
+import type {JSX} from 'react'
 import { Route, 
         createBrowserRouter, 
         createRoutesFromElements, 
         RouterProvider 
 } from 'react-router-dom'
-import Layout from './layout/Layout'
+import Layout from './component/Layout'
 import Shop from './pages/Shop'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -12,7 +12,7 @@ import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import HomePage, { loader as homeLoader } from './pages/HomePage'
 
-function App() {
+function App():JSX.Element {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route 

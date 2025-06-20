@@ -1,9 +1,9 @@
-import React from 'react'
+import type { JSX } from 'react'
 import NavBar from './NavBar'
 import HeaderContent from './HaederDesc'
 import { useLocation } from 'react-router-dom'
 
-export default function Header(){
+export default function Header(): JSX.Element{
     const location = useLocation()
     const pathName = location.pathname // pathName
 

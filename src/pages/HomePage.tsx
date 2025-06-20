@@ -1,6 +1,9 @@
-import React, { Suspense } from 'react'
+import { Suspense  } from 'react'
+import type {JSX} from 'react'
 import { getFurniture } from '../firebase/firebase'
-import Loading from './Loading'
+import type { FurnitureType } from '../firebase/firebase'
+import Loading from '../component/Loading'
+import SlideShow from '../component/SlideShow'
 import { Await, useLoaderData, defer, Link } from 'react-router-dom'
 import cross from '../assets/cross.svg'
 import choose from  '../assets/choose.jpg'
@@ -8,13 +11,16 @@ import support from '../assets/support.svg'
 import truck from '../assets/truck.svg'
 import roll from '../assets/roll.svg'
 import bag from '../assets/bag.svg'
+import imgOne from '../assets/img-grid-1.jpg'
+import imgTwo from '../assets/img-grid-2.jpg'
+import imgThree from '../assets/img-grid-3.jpg'
 
 export async function loader() {
   return defer({ product: getFurniture() })
 }
 
-export default function HomePage() {
-  const { product } = useLoaderData()
+export default function HomePage():JSX.Element {
+ const { product } = useLoaderData() as { product: Promise<FurnitureType[]> }
 
   return (
     <>
@@ -28,6 +34,7 @@ export default function HomePage() {
             <Link
               className='bg-gray-800 hover:bg-gray-950 transition-colors duration-500 text-white px-5 py-3 
               rounded-full'
+              to='explore'
             >
               Explore
             </Link>
@@ -37,7 +44,7 @@ export default function HomePage() {
               <Await resolve={product}>
                 {(furnitureList) => (
                   <ul className="flex flex-col md:flex-row gap-30 md:gap-10 w-full list-none p-0 m-0">
-                    {furnitureList.map((item) => (
+                    {furnitureList.map((item:FurnitureType):JSX.Element => (
                       <li key={item.id} className="flex-1">
                         <article 
                           className='flex flex-col items-center justify-center relative group hover:cursor-pointer'
@@ -56,7 +63,7 @@ export default function HomePage() {
                           <div 
                             className='transition-all duration-300 ease-in-out transform h-55 md:h-40 lg:h-50
                             opacity-0 scale-y-0 origin-bottom group-hover:scale-y-100 group-hover:opacity-100
-                            bg-gray-200 absolute w-full z-[-10] rounded-xl top-[30%] sm:top-[34%] md:top-28 flex
+                            bg-gray-300 absolute w-full z-[-10] rounded-xl top-[30%] sm:top-[34%] md:top-28 flex
                             justify-center items-center'
                           >
                             <img 
@@ -115,8 +122,88 @@ export default function HomePage() {
             </div>
           </div>
           <div className='max-w-[500px] h-[500px]'>
-            <img src={choose} alt="why you choose us image" className='rounded-2xl w-full h-full' />
+            <img src={choose} alt="why you choose us image" className='rounded-2xl w-full h-full object-cover' />
           </div>
+        </section>
+
+        <section>
+          <div className='mt-10 md:mt-30 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20'>
+              <div>
+                <h1 
+                  className='font-medium md:font-bold text-2xl lg:text-3xl text-gray-800'
+                >
+                  We Help You Make Modern Interior Design
+                </h1>
+                <p className='text-[13px]/7 md:text-[15px] font-medium text-gray-600 my-5'>
+                  Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada.
+                  Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                  Pellentesque habitant morbi tristique senectus et netus et malesuada
+                </p>
+                <ul className='list-disc grid grid-cols-2 gap-2 text-xs md:text-sm text-gray-600 mb-6'>
+                  <li>Donec vitae odio quis nisl dapibus malesuada</li>
+                  <li>Donec vitae odio quis nisl dapibus malesuada</li>
+                  <li>Donec vitae odio quis nisl dapibus malesuada</li>
+                  <li>Donec vitae odio quis nisl dapibus malesuada</li>
+                </ul>
+                <Link 
+                  className='bg-gray-800 hover:bg-gray-900 transition-colors 
+                  duration-300 text-white rounded-full px-5 md:px-6 py-2 md:py-3'
+                  to="explore"
+                >
+                  Explore
+                </Link>
+              </div>
+
+              <div className='grid grid-cols-3 grid-rows-2 gap-2 max-w-xl'>
+                <img src={imgOne} alt="" className='rounded-2xl row-span-2 col-span-2' />
+                <img src={imgTwo} alt="" className='rounded-2xl row-span-1 col-span-1' />
+                <img src={imgThree} alt="" className='rounded-2xl row-span-1 col-span-1' />
+              </div>
+          </div>
+          
+          <div className='mt-10 md:mt-15 flex flex-wrap gap-5 md:gap-10 justify-center items-center'>
+
+            <div className='flex gap-3 items-center max-w-[300px]'>
+              <div className='bg-[#bfdfdb] max-w-20 rounded-2xl'>
+                <img src="product-1.png" alt="" className='w-full object-cover' />
+              </div>
+              <div className=' text-gray-600'>
+                <span className='text-gray-800 text-sm font-bold'>Nordic Chair</span>
+                <p className='my-1 text-xs md:text-sm font-medium'>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio</p>
+                <a href="" className='text-gray-800 hover:text-gray-600'>Read More</a>
+              </div>
+            </div>
+            
+            <div className='flex gap-3 items-center max-w-[300px]'>
+              <div className='bg-[#bfdfdb] max-w-20 rounded-2xl'>
+                <img src="product-2.png" alt="" className='w-full object-cover' />
+              </div>
+              <div className=' text-gray-600'>
+                <span className='text-gray-800 text-sm font-bold'>Kruzo Aero Chair</span>
+                <p className='my-1 text-xs md:text-sm font-medium'>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio</p>
+                <a href="" className='text-gray-800 hover:text-gray-600'>Read More</a>
+              </div>
+            </div>
+
+            <div className='flex gap-3 items-center max-w-[300px]'>
+              <div className='bg-[#bfdfdb] max-w-20 rounded-2xl'>
+                <img src="product-3.png" alt="" className='w-full object-cover' />
+              </div>
+              <div className=' text-gray-600'>
+                <span className='text-gray-800 text-sm font-bold'>Ergonomic Chair</span>
+                <p className='my-1 text-xs md:text-sm font-medium'>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio</p>
+                <a href="" className='text-gray-800 hover:text-gray-600'>Read More</a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* SLIDESHOW */}
+        <SlideShow />
+
+        <section>
+          
         </section>
     </>
   )

@@ -1,8 +1,8 @@
-import React from 'react'
+import type {JSX} from 'react'
 import sofa from '../assets/sofa.png'
 import { Link } from 'react-router-dom'
 
-export default function Footer() {
+export default function Footer():JSX.Element {
     return(
         <footer className='p-10 mt-40 '>
             <div className='relative'>
@@ -88,22 +88,22 @@ export default function Footer() {
                     </ul>
 
                     <ul className='grid gap-1'>
-                        <li className='hover:text-gray-500'><Link>Support</Link></li>
-                        <li className='hover:text-gray-500'><Link>Knowledge</Link></li>
-                        <li className='hover:text-gray-500'><Link>Live Chat</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Support</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Knowledge</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Live Chat</Link></li>
                     </ul>
 
                     <ul className='grid gap-1'>
-                        <li className='hover:text-gray-500'><Link>Jobs</Link></li>
-                        <li className='hover:text-gray-500'><Link>Leadership</Link></li>
-                        <li className='hover:text-gray-500'><Link>Our team</Link></li>
-                        <li className='hover:text-gray-500'><Link>Privacy Policy</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Jobs</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Leadership</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Our team</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Privacy Policy</Link></li>
                     </ul>
 
                    <ul className='grid gap-1'>
-                        <li className='hover:text-gray-500'><Link>Nordic Chair</Link></li>
-                        <li className='hover:text-gray-500'><Link>kruzo Aero</Link></li>
-                        <li className='hover:text-gray-500'><Link>Ergonomic Chair</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Nordic Chair</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">kruzo Aero</Link></li>
+                        <li className='hover:text-gray-500'><Link to=".">Ergonomic Chair</Link></li>
                     </ul>
                 </div>
             </div>
@@ -111,8 +111,8 @@ export default function Footer() {
             <div className='text-xs font-medium flex flex-col md:flex-row items-center md:justify-between text-center'>
                 <p className='text-gray-500'>Copyright ©2025. All Rights Reserved. — Designed with love by Untree.co</p>
                 <ul className='flex gap-6'>
-                    <li className='hover:text-gray-500'><Link>Term & Conditions</Link></li>
-                    <li className='hover:text-gray-500'><Link>Privacy Policy</Link></li>
+                    <li className='hover:text-gray-500'><Link to=".">Term & Conditions</Link></li>
+                    <li className='hover:text-gray-500'><Link to=".">Privacy Policy</Link></li>
                 </ul>
             </div>
         </footer>
