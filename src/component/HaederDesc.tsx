@@ -13,14 +13,16 @@ export default function HeaderContent({ headingText }:{ headingText:string }): J
                 </p>
                 <div className='flex items-center gap-3'>
                     <Link 
-                        className='bg-yellow-400 hover:bg-yellow-500 transition-colors duration-400 text-[#14251f] font-bold text-1xl px-3 md:px-4 py-2 md:py-3 rounded-full'
+                        className='bg-yellow-400 hover:bg-yellow-500 transition-colors duration-400
+                         text-[#14251f] font-bold text-1xl px-3 md:px-4 py-2 md:py-3 rounded-full'
                         to="."
                     >
                         Shop Now
                     </Link>
 
                     <Link
-                        className='text-white border-2 border-[#96b6aa] hover:border-white transition-border duration-400 px-3 md:px-4 py-2 md:py-3 rounded-full'
+                        className='text-white border-2 border-[#96b6aa] hover:border-white
+                         transition-border duration-400 px-3 md:px-4 py-2 md:py-3 rounded-full'
                         to="."
                     >
                         Explore

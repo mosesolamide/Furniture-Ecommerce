@@ -21,7 +21,12 @@ function App():JSX.Element {
         loader={homeLoader}
         errorElement={<p>Something went wrong try again!!</p>}
       />
-      <Route path="/shop" element={<Shop />} />
+      <Route 
+        path="/shop" 
+        element={<Shop />} 
+        loader={homeLoader}
+        errorElement={<p>Something went wrong try again!!</p>}
+      />
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
       <Route path="/contactus" element={<Contact />} />

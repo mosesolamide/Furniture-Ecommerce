@@ -1,9 +1,10 @@
 import type {JSX} from 'react'
+import Products from '../component/Products'
 
 export default function Shop():JSX.Element {
     return(
-        <>
-            shops goes here
-        </>
+        <div className='py-12'>
+            <Products />
+        </div>
     )
 }
