@@ -12,7 +12,7 @@ export default function Products({size}:{size?:number}):JSX.Element{
             <Suspense fallback={<Loading />}>
               <Await resolve={product}>
                 {(furnitureList) => (
-                  <ul className="flex flex-col md:flex-row flex-wrap gap-30 md:gap-10 w-full list-none p-0 m-0">
+                  <ul className="flex flex-col md:flex-row flex-wrap gap-30 md:gap-12 w-full list-none p-0 m-0">
                     {furnitureList.slice(0,size).map((item:FurnitureType):JSX.Element => (
                       <li key={item.id} className="flex-1">
                         <article 
