@@ -17,7 +17,7 @@ export default function Cart():JSX.Element{
         <div className='flex flex-col items-center'>
             <table>
                 <thead className='border-b-2 border-black '>
-                    <tr>
+                    <tr className='text-center text-xs'>
                         <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Image</th>
                         <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Product</th>
                         <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Price</th>
