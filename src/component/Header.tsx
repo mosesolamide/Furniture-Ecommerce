@@ -46,6 +46,10 @@ export default function Header(): JSX.Element{
                             headingText= 'Contact Us'
                         />
                     )}
+
+                    {pathName === '/cart' && (
+                        <h1 className='text-white text-2xl md:text-4xl font-bold my-30'>Cart</h1>
+                    )}
                 </div>
             </header>
         )

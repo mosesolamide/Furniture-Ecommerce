@@ -14,8 +14,8 @@ export default function HeaderContent({ headingText }:{ headingText:string }): J
                 <div className='flex items-center gap-3'>
                     <Link 
                         className='bg-yellow-400 hover:bg-yellow-500 transition-colors duration-400
-                         text-[#14251f] font-bold text-1xl px-3 md:px-4 py-2 md:py-3 rounded-full'
-                        to="."
+                         text-[#2d4e43] font-bold text-1xl px-3 md:px-4 py-2 md:py-3 rounded-full'
+                        to=""
                     >
                         Shop Now
                     </Link>

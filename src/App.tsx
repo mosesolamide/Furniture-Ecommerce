@@ -10,6 +10,8 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
+import NotFound from './component/NotFound'
+import Cart from './pages/Cart'
 import HomePage, { loader as homeLoader } from './pages/HomePage'
 
 function App():JSX.Element {
@@ -28,9 +30,15 @@ function App():JSX.Element {
         errorElement={<p>Something went wrong try again!!</p>}
       />
       <Route path="/about" element={<About />} />
-      <Route path="/services" element={<Services />} />
+      <Route 
+        path="/services" 
+        element={<Services />} 
+        loader={homeLoader}
+      />
       <Route path="/contactus" element={<Contact />} />
       <Route path='/blog' element={<Blog />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path='/cart' element={<Cart />} />
     </Route>
   ))
   return (

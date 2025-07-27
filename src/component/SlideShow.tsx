@@ -72,12 +72,9 @@ export default function SlideShow():JSX.Element {
   }, [currentIndex])
 
 
-
-  
-
   return (
     <section className='flex flex-col items-center justify-center mt-10 md:mt-15'>
-      <h1 className='text-xl md:text-3xl font-medium'>Testimonials</h1>
+      <h1 className='text-xl md:text-3xl font-medium text-gray-900'>Testimonials</h1>
       
       <div
         key={`${currentIndex}-${direction}`}

@@ -2,15 +2,13 @@ import type {JSX} from 'react'
 import SlideShow from '../component/SlideShow'
 import { defer, Link  } from 'react-router-dom'
 import { getFurniture } from '../firebase/firebase'
-import choose from  '../assets/choose.jpg'
-import support from '../assets/support.svg'
-import truck from '../assets/truck.svg'
-import roll from '../assets/roll.svg'
-import bag from '../assets/bag.svg'
 import imgOne from '../assets/img-grid-1.jpg'
 import imgTwo from '../assets/img-grid-2.jpg'
 import imgThree from '../assets/img-grid-3.jpg'
-import Products from '../component/Products'
+import Crafted from '../component/Crafted'
+import choose from  '../assets/choose.jpg'
+import Features from '../component/Features'
+import BlogPosts from '../component/BlogPosts'
 
 export async function loader() {
   return defer({ product: getFurniture() })
@@ -19,67 +17,18 @@ export async function loader() {
 export default function HomePage():JSX.Element {
   return (
     <>
-        <section className='grid grid-cols-1 gap-20 md:gap-8 lg:grid-cols-3 place-items-center my-20'>
+        {/* Crafted with excellent material. */}
+        <Crafted />
 
-          <div>
-            <h1 className='font-medium text-2xl lg:text-3xl text-gray-800'>Crafted with excellent with material</h1>
-            <p className='mb-5 text-xs lg:text-sm text-gray-600'>
-              Donec vitae odio quis nisl dapibus malesuada.
-              Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-            </p>
-            <Link
-              className='bg-gray-800 hover:bg-gray-950 transition-colors duration-500 text-white px-5 py-3 
-              rounded-full'
-              to='explore'
-            >
-              Explore
-            </Link>
-          </div>
-
-          {/* small list of the product */}
-          <Products
-            size={3}
-          />
-
-        </section>
-
+        {/* why choose us */}
         <section className='mt-40 grid grid-cols-1 lg:grid-cols-2 gap-5 place-items-center'>
           <div className='h-[500px]'>
             <h1 className='font-medium md:font-bold text-2xl lg:text-3xl text-gray-800'>Why Choose Us</h1>
-            <p className='text-xs my-2 text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+            <p className='text-xs sm:text-sm my-2 sm:my-4 text-gray-600 leading-6'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
               Aliquam vulputate velit imperdiet dolor tempor tristique.
             </p>
-            <div className='grid grid-cols-2 gap-5'>
-              <div>
-                  <img src={truck} alt="image of truck" />
-                  <div>
-                      <span className='font-medium text-gray-800 text-sm'>Fast & Free Shipping</span>
-                      <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                  </div>
-              </div>
-              <div>
-                  <img src={bag} alt="image of bag" />
-                  <div>
-                      <span className='font-medium text-gray-800 text-sm'>Easy to Shop</span>
-                      <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                  </div>
-              </div>
-              <div>
-                  <img src={support} alt="image of support" />
-                  <div>
-                      <span className='font-medium text-gray-800 text-sm'>24/7 Support</span>
-                      <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                  </div>
-              </div>
-              <div>
-                  <img src={roll} alt="image of roll" />
-                  <div>
-                      <span className='font-medium text-gray-800 text-sm'>24/7 Support</span>
-                      <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-                  </div>
-              </div>
+            <Features />
             </div>
-          </div>
           <div className='max-w-[500px] h-[500px]'>
             <img src={choose} alt="why you choose us image" className='rounded-2xl w-full h-full object-cover' />
           </div>
@@ -120,7 +69,7 @@ export default function HomePage():JSX.Element {
               </div>
           </div>
           
-          <div className='mt-10 md:mt-15 flex flex-wrap gap-5 md:gap-10 justify-center items-center'>
+          <div className='mt-20 md:my-36 flex flex-wrap gap-5 md:gap-10 justify-center items-center'>
 
             <div className='flex gap-3 items-center max-w-[300px]'>
               <div className='bg-[#bfdfdb] max-w-20 rounded-2xl'>
@@ -161,12 +110,21 @@ export default function HomePage():JSX.Element {
         {/* SLIDESHOW */}
         <SlideShow />
 
-      {/* recent blog */}
-        <section>
-          <div>
-            
+        {/* Blog Post*/}
+        <section className='mt-20'>
+
+          <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center w-full text-gray-800'>
+            <h1 className='text-2xl md:text-3xl font-medium'>Recent Blog</h1>
+            <Link 
+              to="/blog"
+              className='underline text-sm md:text-lg font-medium'
+            >
+              View All Posts
+            </Link>
           </div>
+            <BlogPosts />
         </section>
+  
     </>
   )
 }
