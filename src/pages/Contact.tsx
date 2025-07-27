@@ -6,7 +6,7 @@ import { FaPhoneAlt } from "react-icons/fa"
 export default function Contact():JSX.Element {
     return(
         <div className='py-10'>
-            <div className='flex flex-col gap-4 items-start lg:flex-row lg:items-center lg:justify-center'>
+            <div className='flex flex-col gap-4 items-start lg:flex-row lg:items-center lg:justify-center min-w-[300px]'>
 
                 <div className='flex items-center justify-center gap-4'>
                     <div className='bg-[#3B5D50] p-4 flex justify-center items-center rounded-lg'>
@@ -33,7 +33,7 @@ export default function Contact():JSX.Element {
 
             {/* form */}
             <form className='flex flex-col'>
-                <div className='grid grid-cols-2 gap-4 mt-20 min-w-[400px] mx-auto'>
+                <div className='grid grid-cols-2 gap-4 mt-20 min-w-[300px] mx-auto'>
                     <div className='col-span-1'>
                         <label className='text-xs font-medium'>First name</label>
                         <input 
