@@ -28,12 +28,12 @@ export default function Cart():JSX.Element{
                 </thead>
                 <tbody>
                     <tr className='text-center text-gray-700 border-b-1 border-gray-400'>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14'>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14'>
                             <img src="product-1.png" alt="image of product" className='w-[40px] sm:w-[50px] md:w-[60px]' />
                         </td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 text-xs'>Ergonomic Chair</td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14'>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 text-xs'>Ergonomic Chair</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14'>
                             <div className='flex justify-center items-center gap-2'>
                                 <button onClick={decrease} className='text-2xl cursor-pointer'>-</button>
                                 <input 
@@ -46,16 +46,16 @@ export default function Cart():JSX.Element{
                                 <button onClick={increase} className='text-2xl cursor-pointer'>+</button>
                             </div>
                         </td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 '>x</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 '>x</td>
                     </tr>
                     <tr className='text-center text-gray-700 border-b-1 border-gray-400'>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14'>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14'>
                             <img src="product-1.png" alt="image of product" className='w-[40px] sm:w-[50px] md:w-[60px]' />
                         </td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 text-xs'>Ergonomic Chair</td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14'>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 text-xs'>Ergonomic Chair</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14'>
                             <div className='flex justify-center items-center gap-2'>
                                 <button onClick={decrease} className='text-2xl cursor-pointer'>-</button>
                                 <input 
@@ -68,8 +68,8 @@ export default function Cart():JSX.Element{
                                 <button onClick={increase} className='text-2xl cursor-pointer'>+</button>
                             </div>
                         </td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
-                        <td className='p-2 sm:p-6 md:p-10 lg:p-14 '>x</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 text-xs'>$49.00</td>
+                        <td className='p-1 sm:p-6 md:p-10 lg:p-14 '>x</td>
                     </tr>
                 </tbody>
             </table>
