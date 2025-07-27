@@ -1,5 +1,5 @@
 import type {JSX} from 'react'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import type { FurnitureType } from '../firebase/firebase'
 import { Await, useLoaderData } from 'react-router-dom'
 import Loading from './Loading'
@@ -7,6 +7,8 @@ import cross from '../assets/cross.svg'
 
 export default function Products({size}:{size?:number}):JSX.Element{
     const { product } = useLoaderData() as { product: Promise<FurnitureType[]> }
+    const [touched,setTouched] = useState<boolean>(true)
+
     return(
         <div className='col-span-2 flex flex-col md:flex-row gap-20 md:mt-5 lg:mt-0'>
             <Suspense fallback={<Loading />}>
@@ -33,17 +35,17 @@ export default function Products({size}:{size?:number}):JSX.Element{
                             <strong className='text-gray-900 text-xs lg:text-sm font-bold'>${item.price}.00</strong>
                           </div>
                           <div 
-                            className='transition-all duration-300 ease-in-out transform h-55 md:h-40 lg:h-50
+                            className={`transition-all duration-300 ease-in-out transform h-55 md:h-40 lg:h-50
                             opacity-0 scale-y-0 origin-bottom group-hover:scale-y-100 group-hover:opacity-100
                             bg-gray-300 absolute w-full z-[-10] rounded-xl top-[30%] sm:top-[34%] md:top-20 flex
-                            justify-center items-center'
+                            justify-center items-center ${touched? 'scale-y-100 opacity-100': ''}`}
                           >
                             <img 
                               src={cross} 
                               alt="" 
-                              className='bg-gray-900 p-2 rounded-full opacity-0 transition-all ease-in-out duration-300
+                              className={`bg-gray-900 p-2 rounded-full opacity-0 transition-all ease-in-out duration-300
                               transform translate-y-0 group-hover:opacity-100 group-hover:translate-y-30 
-                              md:group-hover:translate-y-23' 
+                              md:group-hover:translate-y-23 ${touched? 'translate-y-30 opacity-100': '' }`}
                             />
                           </div>
                         </article>
