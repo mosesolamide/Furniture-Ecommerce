@@ -7,7 +7,7 @@ import cross from '../assets/cross.svg'
 
 export default function Products({size}:{size?:number}):JSX.Element{
     const { product } = useLoaderData() as { product: Promise<FurnitureType[]> }
-    const [touched,setTouched] = useState<boolean>(true)
+    const [touched,setTouched] = useState<boolean>(false)
 
     return(
         <div className='col-span-2 flex flex-col md:flex-row gap-20 md:mt-5 lg:mt-0'>
@@ -19,14 +19,15 @@ export default function Products({size}:{size?:number}):JSX.Element{
                       <li key={item.id} className="flex-1">
                         <article 
                           className='flex flex-col items-center justify-center relative group hover:cursor-pointer'
-
+                          onTouchStart={ () => setTouched(true) }
+                          onTouchEnd={ () => setTouched(false) }
                         >
                           <div className='w-50 h-50'>
                             <img 
                               src={item.imageUrl} 
                               alt={item.name} 
-                              className='w-full h-full object-contain transition-all
-                               duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-[-19%]' 
+                              className={`w-full h-full object-contain transition-all
+                               duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-[-19%] ${touched? 'translate-y-[-19%]': ''}`}
                             />
                           </div>
                           <div className='flex flex-col items-center py-0.5'>
