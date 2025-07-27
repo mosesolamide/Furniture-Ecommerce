@@ -18,12 +18,12 @@ export default function Cart():JSX.Element{
             <table>
                 <thead className='border-b-2 border-black '>
                     <tr className='text-center text-xs'>
-                        <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Image</th>
-                        <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Product</th>
-                        <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Price</th>
-                        <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Quantity</th>
-                        <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Total</th>
-                        <th className='p-2 sm:p-6 md:p-10 lg:p-14'>Remove</th>
+                        <th className='p-1 sm:p-6 md:p-10 lg:p-14'>Image</th>
+                        <th className='p-1 sm:p-6 md:p-10 lg:p-14'>Product</th>
+                        <th className='p-1 sm:p-6 md:p-10 lg:p-14'>Price</th>
+                        <th className='p-1 sm:p-6 md:p-10 lg:p-14'>Quantity</th>
+                        <th className='p-1 sm:p-6 md:p-10 lg:p-14'>Total</th>
+                        <th className='p-1 sm:p-6 md:p-10 lg:p-14'>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,7 +60,7 @@ export default function Cart():JSX.Element{
                                 <button onClick={decrease} className='text-2xl cursor-pointer'>-</button>
                                 <input 
                                     type="text" 
-                                    className='w-[40px] md:w-[50px] h-[40px] md:h-[50px] text-center 
+                                    className='w-[10px] md:w-[50px] h-[10px] md:h-[50px] text-center 
                                     outline-none bg-white border border-gray-300'
                                     value={quantity}
                                     onChange={handleChange}
