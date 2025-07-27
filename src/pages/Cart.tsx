@@ -38,7 +38,7 @@ export default function Cart():JSX.Element{
                                 <button onClick={decrease} className='text-2xl cursor-pointer'>-</button>
                                 <input 
                                     type="text" 
-                                    className='w-[40px] md:w-[50px] h-[40px] md:h-[50px] text-center 
+                                    className='w-[30px] md:w-[50px] h-[30px] md:h-[50px] text-center 
                                     outline-none bg-white border border-gray-300'
                                     value={quantity}
                                     onChange={handleChange}
@@ -60,7 +60,7 @@ export default function Cart():JSX.Element{
                                 <button onClick={decrease} className='text-2xl cursor-pointer'>-</button>
                                 <input 
                                     type="text" 
-                                    className='w-[10px] md:w-[50px] h-[10px] md:h-[50px] text-center 
+                                    className='w-[30px] md:w-[50px] h-[30px] md:h-[50px] text-center 
                                     outline-none bg-white border border-gray-300'
                                     value={quantity}
                                     onChange={handleChange}
