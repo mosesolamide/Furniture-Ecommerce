@@ -31,7 +31,7 @@ export default function Products({size}:{size?:number}):JSX.Element{
                           </div>
                           <div className='flex flex-col items-center py-0.5'>
                             <span className='text-gray-900 text-xs lg:text-sm font-medium'>{item.name}</span>
-                            <strong className='text-gray-900 text-xs lg:text-sm font-bold'>${item.price}.00</strong>
+                            <strong className='text-gray-900 text-xs lg:text-sm font-bold'>${item.price}.0</strong>
                           </div>
                           <div 
                             className={`transition-all duration-300 ease-in-out transform h-55 md:h-40 lg:h-50
