@@ -19,8 +19,7 @@ export default function Products({size}:{size?:number}):JSX.Element{
                       <li key={item.id} className="flex-1">
                         <article 
                           className='flex flex-col items-center justify-center relative group hover:cursor-pointer'
-                          onTouchStart={ () => alert("Moved")}
-                          onTouchEnd={ () => alert("Ok")}
+
                         >
                           <div className='w-50 h-50'>
                             <img 
