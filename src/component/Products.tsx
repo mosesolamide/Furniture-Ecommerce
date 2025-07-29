@@ -10,7 +10,7 @@ export default function Products({ size }: { size?: number }): JSX.Element {
     const [touchedId, setTouchedId] = useState<string | null>(null)
     const [touchTimeout, setTouchTimeout] = useState<NodeJS.Timeout | null>(null)
 
-    // Clean up timeout on unmount
+
     useEffect(() => {
         return () => {
             if (touchTimeout) clearTimeout(touchTimeout)
@@ -25,14 +25,13 @@ export default function Products({ size }: { size?: number }): JSX.Element {
     const handleTouchEnd = () => {
         const timeout = setTimeout(() => {
             setTouchedId(null)
-        }, 300) // Reduced from 10000ms to 300ms for better UX
+        }, 10000) 
         setTouchTimeout(timeout)
     }
 
     const handleAddToCart = (id: string, e: React.MouseEvent | React.TouchEvent) => {
-        e.stopPropagation() // Prevent event bubbling
+        e.stopPropagation() 
         console.log("Add to cart:", id)
-        // Add your cart logic here
     }
 
     return (
@@ -77,7 +76,6 @@ export default function Products({ size }: { size?: number }): JSX.Element {
                                                 alt="Add to cart"
                                                 className={`bg-gray-900 p-2 rounded-full transition-all ease-in-out duration-300
                                                 ${touchedId === item.id ? 'opacity-100 translate-y-30 md:translate-y-23' : 'opacity-0 translate-y-0'}`}
-                                                // Removed onClick from here to prevent double events
                                             />
                                         </div>
                                     </article>
