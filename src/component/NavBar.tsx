@@ -90,11 +90,11 @@ export default function NavBar(){
                         </NavLink>
                     </li>
                     <li className="flex items-center gap-4 md:flex-row md:gap-6">
-                        <NavLink 
+                        {/* <NavLink 
                             to="/user"
                         >
                             <img src={user} alt="user account"/>
-                        </NavLink>
+                        </NavLink> */}
 
                         <NavLink 
                             to="/cart"

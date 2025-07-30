@@ -4,16 +4,20 @@ import type { FurnitureType } from '../firebase/firebase'
 import { Await, useLoaderData } from 'react-router-dom'
 import Loading from './Loading'
 import cross from '../assets/cross.svg'
+import Success from './Succes'
+import { AnimatePresence, motion } from "framer-motion"
 
 export default function Products({ size }: { size?: number }): JSX.Element {
     const { product } = useLoaderData() as { product: Promise<FurnitureType[]> }
     const [touchedId, setTouchedId] = useState<string | null>(null)
     const [touchTimeout, setTouchTimeout] = useState<NodeJS.Timeout | null>(null)
-
+    const [showSuccess, setShowSuccess] = useState<boolean>(false)
+    const [successTimeout, setSuccessTimeout] = useState<NodeJS.Timeout | null>(null)
 
     useEffect(() => {
         return () => {
             if (touchTimeout) clearTimeout(touchTimeout)
+            if (successTimeout) clearTimeout(successTimeout)
         }
     }, [touchTimeout])
 
@@ -29,11 +33,58 @@ export default function Products({ size }: { size?: number }): JSX.Element {
         setTouchTimeout(timeout)
     }
 
-    const handleAddToCart = (id: string) => {
-        alert(`Add to cart:${id}`)
+    const handleAddToCart = (itemPicked: FurnitureType) => {
+        try {
+            // 1. Get existing cart or initialize empty array
+            const existingCart: Array<FurnitureType & { quantity: number }> = 
+                JSON.parse(localStorage.getItem("carts") || '[]')
+
+            // 2. Check if item already exists in cart
+            const existingItemIndex = existingCart.findIndex(item => item.id === itemPicked.id)
+
+            if (existingItemIndex >= 0) {
+                // 3a. If exists, increment quantity
+                existingCart[existingItemIndex].quantity += 1
+            } else {
+                // 3b. If new, add with quantity = 1
+                existingCart.push({
+                    ...itemPicked, // Spread all original properties
+                    quantity: 1    // Add quantity property
+                })
+            }
+            // 4. Save updated cart
+            localStorage.setItem("carts", JSON.stringify(existingCart))
+            setShowSuccess(true)
+
+            const timer = setTimeout( () => {
+                setShowSuccess(false)
+            },2000)
+            setSuccessTimeout(timer)
+
+        } catch (err) {
+            console.error("Cart update failed:", err)
+        }
     }
 
     return (
+       <>
+         <AnimatePresence>
+            {showSuccess && (
+                <motion.div 
+                    className='fixed inset-0 flex justify-center z-50 mt-6'
+                    initial={{ y: -100, opacity: 0}}
+                    animate={{ y: 0, opacity: 100}}
+                    transition={{
+                        type:"tween",
+                        duration: 0.5,
+                        ease: "easeOut"
+                    }}
+                    exit={{ y: "-100%", opacity: 0 }}
+                >
+                    <Success actionMessage='Successfully Added to Cart'/>
+                </motion.div>
+            )}
+         </AnimatePresence>
         <div className='col-span-2 flex flex-col md:flex-row gap-20 md:mt-5 lg:mt-0'>
             <Suspense fallback={<Loading />}>
                 <Await resolve={product}>
@@ -69,7 +120,7 @@ export default function Products({ size }: { size?: number }): JSX.Element {
                                         >
                                             <img
                                                 src={cross}
-                                                onClick={ () => handleAddToCart(item.id)}
+                                                onClick={ () => handleAddToCart(item)}
                                                 alt="Add to cart"
                                                 className={`bg-gray-900 p-2 rounded-full transition-all ease-in-out duration-300 
                                                 ${touchedId === item.id ? 'opacity-100 translate-y-30 md:translate-y-23' :
@@ -84,5 +135,6 @@ export default function Products({ size }: { size?: number }): JSX.Element {
                 </Await>
             </Suspense>
         </div>
+       </> 
     )
 }
