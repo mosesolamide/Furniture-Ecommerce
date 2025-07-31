@@ -1,10 +1,18 @@
 import type {JSX} from 'react'
+import { useLocation, Link } from 'react-router-dom'
+import type { FurnitureType } from '../firebase/firebase' 
 
 export default function Checkout():JSX.Element{
+    const location = useLocation()
+    const stateProps = location.state
+    const orderInCart:Array<FurnitureType & {quantity: number}> = stateProps.newCart
+
     return(
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-20'>
+        <>
+         <Link to='/cart' className='mt-20 inline-block underline'>Back to cart</Link>
+         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             <div>
-                <h1 className='font-medium text-xl md:text-2xl'>Billing Details</h1>
+                <h1 className='font-medium text-xl md:text-2xl mb-4'>Billing Details</h1>
                 <form action="" className='bg-white p-6 lg:p-8 border-1 border-gray-300 rounded-xl'>
                     <label htmlFor="country">Country</label>
                     <select className='border-1 border-gray-400 py-2 rounded-lg w-full'>
@@ -82,7 +90,7 @@ export default function Checkout():JSX.Element{
                 </form>
             </div>
             <div>
-                <h1 className='font-medium text-xl md:text-2xl'>Your Order</h1>
+                <h1 className='font-medium text-xl md:text-2xl mb-4'>Your Order</h1>
                 <div className='p-4 md:p-6 bg-white border-1 border-gray-300 rounded-xl'>
                     <table className='w-full'>
                         <thead className='border-b-2 font-bold text-center'>
@@ -92,26 +100,100 @@ export default function Checkout():JSX.Element{
                             </tr>
                         </thead>
                         <tbody className='text-center'>
+                            {orderInCart.map( ({ name,price,quantity },index) => (
+                                <tr className='border-b-1 border-gray-200' key={index}>
+                                    <td className='py-1 md:py-2 lg:py-4'>{name} x {quantity}</td>
+                                    <td className='py-1 md:py-2 lg:py-4'>${price}</td>
+                                </tr>
+                            ))}
                             <tr className='border-b-1 border-gray-200'>
-                                <td className='py-1'>Product 1 x 1</td>
-                                <td className='py-1'>$250</td>
+                                <td className='py-1 md:py-2 lg:py-4 font-bold'>Cart Subtotal</td>
+                                <td className='py-1 md:py-2 lg:py-4 font-bold'>${stateProps.subtotal.toFixed(2)}</td>
                             </tr>
                             <tr className='border-b-1 border-gray-200'>
-                                <td className='py-1 font-bold'>Cart Subtotal</td>
-                                <td className='py-1 font-bold'>$250</td>
-                            </tr>
-                            <tr className='border-b-1 border-gray-200'>
-                                <td className='py-1 font-bold'>Order Total</td>
-                                <td className='py-1 font-bold'>$250</td>
+                                <td className='py-1 md:py-2 lg:py-4 font-bold'>Order Total</td>
+                                <td className='py-1 md:py-2 lg:py-4 font-bold'>${stateProps.total.toFixed(2)}</td>
                             </tr>
                         </tbody>
                     </table>  
-                    <div>
+                    <div className='mt-6'>
+                        <h3 className='font-medium text-lg mb-3'>Payment Method</h3>
+                        <div className='space-y-3'>
+                            <div className='flex items-center'>
+                                <input 
+                                    type="radio" 
+                                    id="credit-card" 
+                                    name="payment" 
+                                    value="credit-card" 
+                                    className='mr-2 h-4 w-4'
+                                    defaultChecked
+                                />
+                                <label htmlFor="credit-card" className='flex-1'>Credit/Debit Card</label>
+                            </div>
+                            <div className='flex items-center'>
+                                <input 
+                                    type="radio" 
+                                    id="cash" 
+                                    name="payment" 
+                                    value="cash" 
+                                    className='mr-2 h-4 w-4'
+                                />
+                                <label htmlFor="cash" className='flex-1'>Cash on Delivery</label>
+                            </div>
+                        </div>
                         
+                        {/* Credit Card Form (shown when credit card is selected) */}
+                        <div className='mt-4 space-y-3'>
+                            <div>
+                                <label htmlFor="card-number">Card Number</label>
+                                <input 
+                                    type="text" 
+                                    id="card-number" 
+                                    className='border-1 border-gray-400 py-2 rounded-lg w-full indent-4'
+                                    placeholder='1234 5678 9012 3456'
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="card-name">Name on Card</label>
+                                <input 
+                                    type="text" 
+                                    id="card-name" 
+                                    className='border-1 border-gray-400 py-2 rounded-lg w-full indent-4'
+                                    placeholder='John Doe'
+                                />
+                            </div>
+                            <div className='flex gap-4'>
+                                <div className='flex-1'>
+                                    <label htmlFor="expiry">Expiry Date</label>
+                                    <input 
+                                        type="text" 
+                                        id="expiry" 
+                                        className='border-1 border-gray-400 py-2 rounded-lg w-full indent-4'
+                                        placeholder='MM/YY'
+                                    />
+                                </div>
+                                <div className='flex-1'>
+                                    <label htmlFor="cvv">CVV</label>
+                                    <input 
+                                        type="text" 
+                                        id="cvv" 
+                                        className='border-1 border-gray-400 py-2 rounded-lg w-full indent-4'
+                                        placeholder='123'
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button 
+                            className='bg-[#2f2f2f] text-white py-2 md:py-4
+                             px-4 md:px-6 rounded-3xl mt-6 w-full cursor-pointer'
+                        >
+                            Place Order
+                        </button>
                     </div>
                 </div>
             </div>
-
-        </div>
+         </div>
+        </>
     )
 }
