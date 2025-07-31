@@ -213,6 +213,7 @@ export default function Cart(): JSX.Element {
                         <button 
                             className="mt-6 w-full bg-[#2f2f2f] hover:bg-[#252525]
                             text-white font-bold py-3 rounded-2xl transition-colors cursor-pointer"
+                            onClick={ () => navigate('/checkout')}
                          >
                             Proceed To Checkout
                         </button>

@@ -13,6 +13,7 @@ import Blog from './pages/Blog'
 import NotFound from './component/NotFound'
 import Cart from './pages/Cart'
 import HomePage, { loader as homeLoader } from './pages/HomePage'
+import Checkout from './pages/Checkout'
 
 function App():JSX.Element {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -39,6 +40,7 @@ function App():JSX.Element {
       <Route path='/blog' element={<Blog />} />
       <Route path="*" element={<NotFound />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/checkout' element={<Checkout />} />
     </Route>
   ))
   return (
