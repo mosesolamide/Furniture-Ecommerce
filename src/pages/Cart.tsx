@@ -1,5 +1,5 @@
 import type { JSX } from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import type { FurnitureType } from '../firebase/firebase'
 import { AnimatePresence, motion } from 'framer-motion'

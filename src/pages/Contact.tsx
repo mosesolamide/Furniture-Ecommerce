@@ -1,6 +1,5 @@
 import type {JSX} from 'react'
-import { MdLocationOn } from "react-icons/md"
-import { MdForwardToInbox } from "react-icons/md"
+import { MdLocationOn, MdForwardToInbox } from "react-icons/md"
 import { FaPhoneAlt } from "react-icons/fa"
 
 export default function Contact():JSX.Element {

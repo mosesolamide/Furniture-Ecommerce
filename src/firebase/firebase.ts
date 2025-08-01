@@ -1,6 +1,6 @@
   import { initializeApp } from "firebase/app"
   import { getFirestore, collection, getDocs } from "firebase/firestore"
-  import { getAuth, GoogleAuthProvider } from "firebase/auth"
+  // import { getAuth, GoogleAuthProvider } from "firebase/auth"
 
   const firebaseConfig = {
     apiKey: "AIzaSyCQ12u-ujmIRvdHRCCKkIZGql7C35sjSqQ",
@@ -13,9 +13,9 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig)
-  export const auth = getAuth(app)
+  // export const auth = getAuth(app)
   export const db = getFirestore(app)
-  export const googleProvider = new GoogleAuthProvider() 
+  // export const googleProvider = new GoogleAuthProvider() 
 
   const furnitureCollection = collection(db, "furnitures")
 
@@ -25,7 +25,6 @@
     name: string
     price: number
   }
-
 
   export async function getFurniture(): Promise<FurnitureType[]> {
     const querySnapshot = await getDocs(furnitureCollection)
