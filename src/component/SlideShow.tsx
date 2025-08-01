@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import type {JSX} from 'react'
 import { GrNext, GrPrevious } from "react-icons/gr"
-import './slide.css'
 
 export default function SlideShow():JSX.Element {
+  useEffect(() => {
+    import('./slide.css')
+  }, [])
   type Person = {
     img: string
     about:string

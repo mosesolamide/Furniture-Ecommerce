@@ -5,6 +5,7 @@ import type { FurnitureType } from '../firebase/firebase'
 import { AnimatePresence, motion } from 'framer-motion'
 import Success from '../component/Succes'
 
+
 export default function Cart(): JSX.Element {
     const navigate = useNavigate()
     const [newCart, setNewCart] = useState<Array<FurnitureType & { quantity: number }>>([])

@@ -1,5 +1,5 @@
 import type {JSX} from 'react'
-import SlideShow from '../component/SlideShow'
+import { lazy, Suspense } from 'react'
 import { defer, Link  } from 'react-router-dom'
 import { getFurniture } from '../firebase/firebase'
 import imgOne from '../assets/img-grid-1.jpg'
@@ -8,7 +8,9 @@ import imgThree from '../assets/img-grid-3.jpg'
 import Crafted from '../component/Crafted'
 import choose from  '../assets/choose.jpg'
 import Features from '../component/Features'
-import BlogPosts from '../component/BlogPosts'
+
+const SlideShow = lazy(() => import('../component/SlideShow'))
+const BlogPosts = lazy(() => import('../component/BlogPosts'))
 
 export async function loader() {
   return defer({ product: getFurniture() })
@@ -108,7 +110,9 @@ export default function HomePage():JSX.Element {
         </section>
 
         {/* SLIDESHOW */}
-        <SlideShow />
+        <Suspense fallback={<div>Loading slideshow...</div>}>
+          <SlideShow />
+        </Suspense>
 
         {/* Blog Post*/}
         <section className='mt-20'>
@@ -122,7 +126,9 @@ export default function HomePage():JSX.Element {
               View All Posts
             </Link>
           </div>
-            <BlogPosts />
+            <Suspense fallback={<div>Loading blog posts...</div>}>
+              <BlogPosts />
+            </Suspense>
         </section>
   
     </>
