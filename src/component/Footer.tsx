@@ -54,6 +54,7 @@ export default function Footer():JSX.Element {
                             href='#' 
                             className='text-green-800 hover:text-white bg-green-100 hover:bg-green-800
                              transition-colors duration-500 w-8 h-8 p-5 flex justify-center items-center rounded-full'
+                             aria-label='Facebook'
                         >
                             <i className="bi bi-facebook"></i>
                         </a>
@@ -61,6 +62,7 @@ export default function Footer():JSX.Element {
                             href='#' 
                             className='text-green-800 hover:text-white bg-green-100 hover:bg-green-800
                              transition-colors duration-500 w-8 h-8 p-5 flex justify-center items-center rounded-full'
+                            aria-label='Twitter'
                         >
                             <i className="bi bi-twitter"></i>
                         </a>
@@ -68,6 +70,7 @@ export default function Footer():JSX.Element {
                             href='#' 
                             className='text-green-800 hover:text-white bg-green-100 hover:bg-green-800
                              transition-colors duration-500 w-8 h-8 p-5 flex justify-center items-center rounded-full'
+                              aria-label='Instagram'
                         >
                             <i className="bi bi-instagram"></i>
                         </a>
@@ -75,6 +78,7 @@ export default function Footer():JSX.Element {
                             href='#' 
                             className='text-green-800 hover:text-white bg-green-100 hover:bg-green-800
                              transition-colors duration-500 w-8 h-8 p-5 flex justify-center items-center rounded-full'
+                              aria-label='Linkedin'
                         >
                             <i className="bi bi-linkedin"></i>
                         </a>
