@@ -17,7 +17,7 @@ export default function NavBar(){
             ></i>
             <nav className="text-sm font-bold text-[hsl(157,13%,53%)]">
                 <ul className={`${!isMenuOpen? "hidden" : ""} md:flex md:gap-6 lg:gap-10`}>
-                    <li className="mt-4 mb-3 md:mb-0 md:mt-0">
+                    <li className="mt-4 mb-6 md:mb-0 md:mt-0">
                         <NavLink 
                             className={
                                  ({ isActive }) => isActive? 
@@ -29,7 +29,7 @@ export default function NavBar(){
                             Home
                         </NavLink>
                     </li>
-                    <li className="mb-3 md:mb-0">
+                    <li className="mb-6 md:mb-0">
                         <NavLink 
                             className={
                                  ({ isActive }) => isActive? 
@@ -41,7 +41,7 @@ export default function NavBar(){
                             Shop
                         </NavLink>
                     </li>
-                    <li className="mb-3 md:mb-0">
+                    <li className="mb-6 md:mb-0">
                         <NavLink 
                             className={
                                  ({ isActive }) => isActive? 
@@ -53,7 +53,7 @@ export default function NavBar(){
                             About Us
                         </NavLink>
                     </li>
-                    <li className="mb-3 md:mb-0">
+                    <li className="mb-6 md:mb-0">
                         <NavLink 
                             className={
                                  ({ isActive }) => isActive? 
@@ -65,7 +65,7 @@ export default function NavBar(){
                             Services
                         </NavLink>
                     </li>
-                    <li className="mb-3 md:mb-0">
+                    <li className="mb-6 md:mb-0">
                         <NavLink 
                             className={
                                  ({ isActive }) => isActive? 
@@ -77,7 +77,7 @@ export default function NavBar(){
                             Blog
                         </NavLink>
                     </li>
-                    <li className="mb-3 md:mb-0">
+                    <li className="mb-6 md:mb-0">
                         <NavLink 
                             className={
                                  ({ isActive }) => isActive? 
@@ -89,7 +89,7 @@ export default function NavBar(){
                             Contact Us
                         </NavLink>
                     </li>
-                    <li className="flex items-center gap-4 md:flex-row md:gap-6">
+                    <li className="flex items-center gap-6 md:flex-row md:gap-8">
                         <NavLink 
                             to="/user"
                         >

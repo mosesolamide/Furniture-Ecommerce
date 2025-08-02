@@ -2,13 +2,12 @@ import type {JSX} from 'react'
 import { Link } from 'react-router-dom'
 import WhyChooseUs from '../component/Features'
 import SlideShow from '../component/SlideShow'
-import Person1 from '../assets/person_1.jpg'
-import Person2 from '../assets/person_2.jpg'
-import Person3 from '../assets/person_3.jpg'
-import Person4 from '../assets/person_4.jpg'
+import Person1 from '../assets/person_1.avif'
+import Person2 from '../assets/person_2.avif'
+import Person3 from '../assets/person_3.avif'
+import Person4 from '../assets/person_4.avif'
 
 export default function About():JSX.Element {
-
     type Members = {
         img: string
         name: string

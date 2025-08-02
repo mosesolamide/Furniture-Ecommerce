@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
-import blogOne from '../assets/post-1.jpg'
-import blogTwo from '../assets/post-2.jpg'
-import blogThree from '../assets/post-3.jpg'
+import blogOne from '../assets/post-1.avif'
+import blogTwo from '../assets/post-2.avif'
+import blogThree from '../assets/post-3.avif'
 
 export default function BlogPosts(): JSX.Element {
     return (

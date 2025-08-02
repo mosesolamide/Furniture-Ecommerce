@@ -1,13 +1,13 @@
 import type {JSX} from 'react'
 import { Link } from "react-router-dom"
-import couch from '../assets/couch.png'
+import couch from '../assets/couch.avif'
 
 export default function HeaderContent({ headingText }:{ headingText:string }): JSX.Element{
     return(
         <>
             <div>
                 <h1 className='text-white text-2xl md:text-4xl font-bold'>{headingText}</h1>
-                <p className='text-xs md:text-sm my-4 font-medium text-[#96b6aa]'>
+                <p className='text-xs md:text-sm my-4 font-medium text-white'>
                     Donec vitae odio quis nisl dapibus malesuada.
                     Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                 </p>

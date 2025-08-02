@@ -1,5 +1,5 @@
 import type {JSX} from 'react'
-import sofa from '../assets/sofa.png'
+import sofa from '../assets/sofa.avif'
 import { Link } from 'react-router-dom'
 
 export default function Footer():JSX.Element {
@@ -24,6 +24,7 @@ export default function Footer():JSX.Element {
                     <button 
                         className='w-full bg-green-900 hover:bg-green-950 cursor-pointer 
                         transition-colors duration-400 text-white rounded-md py-2.5'
+                        aria-label='Send Message'
                     >
                             <i className="bi bi-send"></i>
                     </button>
