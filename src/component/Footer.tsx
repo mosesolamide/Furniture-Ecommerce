@@ -81,27 +81,27 @@ export default function Footer():JSX.Element {
                     </div>
                 </div>
                 <div className='text-xs md:text-sm font-medium grid grid-cols-2 md:grid-cols-4 gap-4 lg:col-span-2'>
-                    <ul className='grid gap-1'>
+                    <ul className='grid gap-2'>
                         <li className='hover:text-gray-500'><Link to="about">About Us</Link></li>
                         <li className='hover:text-gray-500'><Link to="services">Services</Link></li>
                         <li className='hover:text-gray-500'><Link to="blog">Blog</Link></li>
                         <li className='hover:text-gray-500'><Link to="contactus">Contact Us</Link></li>
                     </ul>
 
-                    <ul className='grid gap-1'>
+                    <ul className='grid gap-2'>
                         <li className='hover:text-gray-500'><Link to=".">Support</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">Knowledge</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">Live Chat</Link></li>
                     </ul>
 
-                    <ul className='grid gap-1'>
+                    <ul className='grid gap-2'>
                         <li className='hover:text-gray-500'><Link to=".">Jobs</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">Leadership</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">Our team</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">Privacy Policy</Link></li>
                     </ul>
 
-                   <ul className='grid gap-1'>
+                   <ul className='grid gap-2'>
                         <li className='hover:text-gray-500'><Link to=".">Nordic Chair</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">kruzo Aero</Link></li>
                         <li className='hover:text-gray-500'><Link to=".">Ergonomic Chair</Link></li>
