@@ -7,7 +7,7 @@ export default function Layout():JSX.Element{
     return(
         <>
           <Header /> 
-          <main className='px-10 md:px-15 lg:px-20'>
+          <main className='px-10 md:px-15 lg:px-20 min-h-[200px]'>
                 <Outlet />
           </main>
           <Footer />
