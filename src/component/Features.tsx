@@ -8,28 +8,28 @@ export default function Features():JSX.Element{
     return(
             <div className='grid grid-cols-2 gap-5'>
               <div>
-                  <img src={truck} alt="image of truck" />
+                  <img src={truck} alt="image of truck" className="w-10 h-10" />
                   <div>
                       <span className='font-medium text-gray-800 text-sm'>Fast & Free Shipping</span>
                       <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
                   </div>
               </div>
               <div>
-                  <img src={bag} alt="image of bag" />
+                  <img src={bag} alt="image of bag" className="w-10 h-10" />
                   <div>
                       <span className='font-medium text-gray-800 text-sm'>Easy to Shop</span>
                       <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
                   </div>
               </div>
               <div>
-                  <img src={support} alt="image of support" />
+                  <img src={support} alt="image of support" className="w-10 h-10" />
                   <div>
                       <span className='font-medium text-gray-800 text-sm'>24/7 Support</span>
                       <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
                   </div>
               </div>
               <div>
-                  <img src={roll} alt="image of roll" />
+                  <img src={roll} alt="image of roll" className="w-10 h-10" />
                   <div>
                       <span className='font-medium text-gray-800 text-sm'>24/7 Support</span>
                       <p className='font-medium text-xs text-gray-600'>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>

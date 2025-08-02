@@ -30,7 +30,7 @@ export default function HeaderContent({ headingText }:{ headingText:string }): J
                 </div>
             </div>
             <div>
-                <img src={couch} alt="image of couch" className='w-2xl' />
+                <img src={couch} alt="image of couch" fetchPriority="high" className='w-2xl h-2xl' />
             </div>
         </>
     )
